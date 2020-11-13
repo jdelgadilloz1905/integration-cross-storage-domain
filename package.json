@@ -1,7 +1,7 @@
 {
 	"name": "integration-cross-storage-domain",
-	"version": "1.0.0",
-	"description": "Integracion entre dos plataforma para compartir variables locacles, por medio de localStorage",
+	"version": "1.1.1",
+	"description": "Integracion entre dominios, de cualquier plataforma, como por ejemplo REACT y VUE",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,17 @@
 		"type": "git",
 		"url": "git+https://github.com/jdelgadilloz1905/integration-cross-storage-domain.git"
 	},
-	"keywords": [],
-	"author": "Jorge delgadillo",
-	"license": "ISC"
+	"keywords": [
+		"integration",
+		"storage",
+		"cross",
+		"domain",
+		"pharol"
+	],
+	"author": "jorge delgadillo",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/jdelgadilloz1905/integration-cross-storage-domain/issues"
+	},
+	"homepage": "https://github.com/jdelgadilloz1905/integration-cross-storage-domain#readme"
 }
