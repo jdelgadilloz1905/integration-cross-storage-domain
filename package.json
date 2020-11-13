@@ -6,6 +6,10 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jdelgadilloz1905/integration-cross-storage-domain.git"
+	},
 	"keywords": [],
 	"author": "Jorge delgadillo",
 	"license": "ISC"
