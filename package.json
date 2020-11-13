@@ -1,5 +1,5 @@
 {
-	"name": "integration-cross-storage-domain",
+	"name": "@jorge.delgadillo/integration-cross-storage-domain",
 	"version": "1.0.0",
 	"description": "Integracion entre dos plataforma para compartir variables locacles, por medio de localStorage",
 	"main": "index.js",
