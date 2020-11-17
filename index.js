@@ -167,24 +167,27 @@ exports.crossDomainStorage = function (opts) {
 			})
 		}
 		_iframe.src = _origin + _path
-		console.log('LA RUTA ES ', _iframe.src)
 	}
 
 	return cdstorage
 }
 
-exports.conectOtherDomain = function (urlDomain) {
-	const whitelist = [urlDomain, '^.*.domain.com']
+exports.conectOtherDomain = function () {
 	if (window.addEventListener) {
-		//console.info(window.addEventListener);
-
 		window.addEventListener('message', handleRequest, false)
 	} else if (window.attachEvent) {
 		window.attachEvent('onmessage', handleRequest)
 	}
 }
 
-function verifyOrigin(origin, whitelist) {
+//LISTA BLANCA O URL PERMITIDAS
+var whitelist = [
+	'localhost:8000',
+	'localhost:3000',
+	'localhost',
+	'^.*.domain.com',
+]
+function verifyOrigin(origin) {
 	var domain = origin.replace(/^https?:\/\/|:\d{1,4}$/g, '').toLowerCase(),
 		i = 0,
 		len = whitelist.length
@@ -199,13 +202,12 @@ function verifyOrigin(origin, whitelist) {
 	return false
 }
 
-function handleRequest(event, whitelist) {
-	//console.info("eventos", event);
-	if (verifyOrigin(event.origin, whitelist)) {
+function handleRequest(event) {
+	if (verifyOrigin(event.origin)) {
 		var request = JSON.parse(event.data)
 		var storage = request.storage
 
-		if (request.type === 'get') {
+		if (request.type == 'get') {
 			var value = window[storage].getItem(request.key)
 			event.source.postMessage(
 				JSON.stringify({
@@ -215,9 +217,9 @@ function handleRequest(event, whitelist) {
 				}),
 				event.origin
 			)
-		} else if (request.type === 'set') {
+		} else if (request.type == 'set') {
 			window[storage].setItem(request.key, request.value)
-		} else if (request.type === 'remove') {
+		} else if (request.type == 'remove') {
 			window[storage].removeItem(request.key)
 		}
 	}
