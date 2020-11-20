@@ -1,6 +1,6 @@
 {
 	"name": "integration-cross-storage-domain",
-	"version": "1.1.2",
+	"version": "1.1.5",
 	"description": "Integracion entre dominios, de cualquier plataforma, como por ejemplo REACT y VUE",
 	"main": "index.js",
 	"scripts": {

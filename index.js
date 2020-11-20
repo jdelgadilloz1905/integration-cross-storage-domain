@@ -181,12 +181,8 @@ exports.conectOtherDomain = function () {
 }
 
 //LISTA BLANCA O URL PERMITIDAS
-var whitelist = [
-	'localhost:8000',
-	'localhost:3000',
-	'localhost',
-	'^.*.domain.com',
-]
+var whitelist = process.env.REACT_APP_WHITELISTREACT
+
 function verifyOrigin(origin) {
 	var domain = origin.replace(/^https?:\/\/|:\d{1,4}$/g, '').toLowerCase(),
 		i = 0,
@@ -204,7 +200,11 @@ function verifyOrigin(origin) {
 
 function handleRequest(event) {
 	if (verifyOrigin(event.origin)) {
-		var request = JSON.parse(event.data)
+		if (typeof event.origin === 'object') {
+			var request = event.data
+		} else {
+			var request = JSON.parse(event.data)
+		}
 		var storage = request.storage
 
 		if (request.type == 'get') {
