@@ -200,7 +200,7 @@ function verifyOrigin(origin) {
 
 function handleRequest(event) {
 	if (verifyOrigin(event.origin)) {
-		if (typeof event.origin === 'object') {
+		if (typeof event.data === 'object') {
 			var request = event.data
 		} else {
 			var request = JSON.parse(event.data)
