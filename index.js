@@ -1,6 +1,5 @@
 /** @format */
 
-//**************FUNCIONES QUE REALIZAN LA PETICION AL DOMINIO *****************
 exports.crossDomainStorage = function (opts) {
 	var origin = opts.origin || '',
 		path = opts.path || '',
@@ -21,8 +20,6 @@ exports.crossDomainStorage = function (opts) {
 			return false
 		}
 	})()
-
-	//Metodos privados
 
 	var _sendRequest = function (data) {
 		if (_iframe) {
@@ -55,8 +52,6 @@ exports.crossDomainStorage = function (opts) {
 			}
 		}
 	}
-
-	//Metodos publicos
 
 	cdstorage.getItem = function (key, callback) {
 		if (supported) {
@@ -131,8 +126,6 @@ exports.crossDomainStorage = function (opts) {
 			}
 		}
 	}
-
-	//Init
 	if (!_iframe && supported) {
 		_iframe = document.createElement('iframe')
 		_iframe.style.cssText =
@@ -180,7 +173,6 @@ exports.conectOtherDomain = function () {
 	}
 }
 
-//LISTA BLANCA O URL PERMITIDAS
 var whitelist = process.env.REACT_APP_WHITELISTREACT
 
 function verifyOrigin(origin) {
